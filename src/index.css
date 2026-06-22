@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  --color-bg-primary: #060608;
+  --color-bg-secondary: #0c0c10;
+  --color-accent-violet: #22c55e;
+  --color-accent-teal: #ccff00;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #060608;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Background mesh glow effects */
+.bg-mesh-violet {
+  background: radial-gradient(circle at center, rgba(34, 197, 94, 0.12) 0%, rgba(6, 6, 8, 0) 70%);
+}
+.bg-mesh-teal {
+  background: radial-gradient(circle at center, rgba(204, 255, 0, 0.12) 0%, rgba(6, 6, 8, 0) 70%);
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-nav {
+  background: rgba(3, 7, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Micro-interaction glows */
+.hover-glow:hover {
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.25);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.hover-glow-teal:hover {
+  box-shadow: 0 0 25px rgba(204, 255, 0, 0.25);
+  border-color: rgba(204, 255, 0, 0.3);
+}
+
+/* Blinking terminal terminal-cursor */
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 17px;
+  background-color: var(--color-accent-teal);
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Floating animation */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
