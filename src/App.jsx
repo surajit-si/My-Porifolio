@@ -1,13 +1,18 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Terminal from './components/Terminal';
-import Contact from './components/Contact';
+import React, { useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Terminal from "./components/Terminal";
+import Contact from "./components/Contact";
 
 function App() {
+  useEffect(() => {
+    // Scroll to top on component mount
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-bg-primary text-gray-100 overflow-x-hidden">
       <Navbar />
