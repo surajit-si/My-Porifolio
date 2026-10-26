@@ -1,19 +1,29 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Terminal as TerminalIcon, ShieldCheck, ChevronRight } from 'lucide-react';
+import React, { useState, useRef, useEffect } from "react";
+import {
+  Terminal as TerminalIcon,
+  ShieldCheck,
+  ChevronRight,
+} from "lucide-react";
 
 export default function Terminal() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [history, setHistory] = useState([
-    { type: 'output', text: "Welcome to Surajit Si's Developer Terminal [Version 1.0.0]" },
-    { type: 'output', text: "Type 'help' to view all available commands and interactive sections." },
-    { type: 'output', text: "" }
+    {
+      type: "output",
+      text: "Welcome to Surajit Si's Developer Terminal [Version 1.0.0]",
+    },
+    {
+      type: "output",
+      text: "Type 'help' to view all available commands and interactive sections.",
+    },
+    { type: "output", text: "" },
   ]);
-  
+
   const terminalEndRef = useRef(null);
   const inputRef = useRef(null);
 
   const scrollToBottom = () => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -25,20 +35,23 @@ export default function Terminal() {
   };
 
   const handleCommand = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       const command = input.trim().toLowerCase();
-      const newHistory = [...history, { type: 'input', text: `surajit_si@portfolio ~ % ${input}` }];
-      
-      if (command === 'clear') {
+      const newHistory = [
+        ...history,
+        { type: "input", text: `surajit_si@portfolio ~ % ${input}` },
+      ];
+
+      if (command === "clear") {
         setHistory([]);
-        setInput('');
+        setInput("");
         return;
       }
 
-      let output = '';
+      let output = "";
 
       switch (command) {
-        case 'help':
+        case "help":
           output = `Available commands:
   about    - Discover Surajit's background and development philosophies.
   skills   - Lists core full stack technology metrics.
@@ -46,59 +59,77 @@ export default function Terminal() {
   connect  - Fetch direct email and active profiles (GitHub, LinkedIn).
   clear    - Clear all terminal output history.`;
           break;
-        case 'about':
+        case "about":
           output = `Surajit Si | Full Stack Developer
 ------------------------------------
-Specialization: MERN Stack Architecture
-Philosophy: Write clear, optimized, secure code built for people.
-Interest: Designing clean database queries and creating custom responsive animations.
-Status: Open for Freelance & Full-time opportunities.`;
+ I am a dedicated Full Stack Web Developer Focused on Backend who loves creating beautiful web applications that solve real-world problems. My journey into programming started from a deep curiosity about how digital interfaces work, which quickly grew into a passion for complete stack development.
+Status: Open for Freelance, Internships & Full-time opportunities.`;
           break;
-        case 'skills':
+        case "skills":
           output = `Core Tech Capabilities:
 -----------------------
-- Frontend: HTML5, CSS3, JavaScript (ES6+), React, Tailwind CSS
-- Backend:  Node.js, Express, RESTful APIs, MVC architecture
-- Database: MongoDB, Mongoose ODM, dynamic aggregations
-- Tools:    Git, GitHub, NPM, Postman`;
+- Languages: JavaScript, TypeScript, HTML5, CSS3
+- Frontend: React, NextJS, Redux, Tailwind CSS, Bootstrap, Framer Motion
+- Backend:  Node.js, Express, RESTful APIs, Socket.IO
+- Database: MongoDB, Mongoose, dynamic aggregations, Cloudinary
+- Tools & Devlopment:    Git, GitHub, NPM, Postman, Vercel, Netlify, ENV`;
           break;
-        case 'projects':
+        case "projects":
           output = `Featured Project Showcase:
 --------------------------
-1. Iron Syndicate
-   - Premium Boutique Strength Gym landing page featuring live occupancy feeds and raw styling.
-   - GitHub: https://github.com/surajit-si`;
+1. Chatrix
+   - Real-time messaging platform built with React, NodeJS, Express, MongoDB, Socket.IO, Cloudinary, JWT, and authentication.
+
+   - Frontend Source: https://github.com/surajit-si/Frontend-Chatrix-Modern-Real-Time-Communication-Platform
+   - Backend Source: https://github.com/surajit-si/Backend-Chatrix-Modern-Real-Time-Communication-Platform
+   - Live Site: https://chatrix-app.netlify.app/
+   
+   
+   2. Advanced Todo App
+      - A todo app with local storage and database both features. If signed in, it will use database, but if not, it will use local storage.
+      
+      Souece Code: https://github.com/surajit-si/Advanced-Todo-App
+      Live Site: https://surajit-todo-one.vercel.app/
+      
+      
+  3. Iron Syndicate
+     - Premium Boutique Strength Gym landing page featuring live occupancy feeds and raw styling.
+     - Source Code: https://github.com/surajit-si/Gym-Landing-Page
+     - Live Site: https://ironsyndicate-app.netlify.app/`;
+
           break;
-        case 'connect':
+        case "connect":
           output = `Connect Channels:
 -----------------
 - Email:     i.am.surajit.si@gmail.com
 - GitHub:    https://github.com/surajit-si
 - LinkedIn:  https://www.linkedin.com/in/surajit-si-682bb03a2/`;
           break;
-        case '':
-          output = '';
+        case "":
+          output = "";
           break;
         default:
           output = `Command not found: '${command}'. Type 'help' to show all valid commands.`;
       }
 
       if (output) {
-        newHistory.push({ type: 'output', text: output });
+        newHistory.push({ type: "output", text: output });
       }
 
       setHistory(newHistory);
-      setInput('');
+      setInput("");
     }
   };
 
   return (
-    <section id="console" className="py-24 relative overflow-hidden bg-gray-950/40">
+    <section
+      id="console"
+      className="py-24 relative overflow-hidden bg-gray-950/40"
+    >
       {/* Visual background glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-mesh-teal rounded-full opacity-10 pointer-events-none -z-10"></div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Section Header */}
         <div className="flex flex-col items-start text-left mb-12 space-y-3">
           <div className="flex items-center gap-2 text-accent-teal text-sm font-semibold tracking-wider font-mono">
@@ -109,13 +140,14 @@ Status: Open for Freelance & Full-time opportunities.`;
             Developer Console Shell
           </h2>
           <p className="text-gray-400 text-sm max-w-md text-left">
-            Interact with the portfolio directly using a mock Linux shell command prompt.
+            Interact with the portfolio directly using a mock Linux shell
+            command prompt.
           </p>
           <div className="w-20 h-[3px] bg-accent-teal rounded-full"></div>
         </div>
 
         {/* Terminal Window */}
-        <div 
+        <div
           onClick={focusInput}
           className="glass rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col h-[450px] cursor-text bg-gray-950/75"
         >
@@ -137,8 +169,10 @@ Status: Open for Freelance & Full-time opportunities.`;
           <div className="flex-1 p-6 overflow-y-auto font-mono text-xs sm:text-sm text-left space-y-3 custom-scrollbar">
             {history.map((log, idx) => (
               <div key={idx} className="whitespace-pre-wrap leading-relaxed">
-                {log.type === 'input' ? (
-                  <span className="text-accent-teal font-semibold">{log.text}</span>
+                {log.type === "input" ? (
+                  <span className="text-accent-teal font-semibold">
+                    {log.text}
+                  </span>
                 ) : (
                   <span className="text-gray-300">{log.text}</span>
                 )}
@@ -150,7 +184,9 @@ Status: Open for Freelance & Full-time opportunities.`;
           {/* Interactive Shell Input Line */}
           <div className="px-6 py-4 border-t border-white/5 bg-gray-950/60 flex items-center gap-2 font-mono text-xs sm:text-sm">
             <ChevronRight className="w-4 h-4 text-accent-teal" />
-            <span className="text-accent-teal select-none">surajit_si@portfolio ~ %</span>
+            <span className="text-accent-teal select-none">
+              surajit_si@portfolio ~ %
+            </span>
             <input
               ref={inputRef}
               type="text"
@@ -166,9 +202,7 @@ Status: Open for Freelance & Full-time opportunities.`;
             />
             <span className="terminal-cursor"></span>
           </div>
-
         </div>
-
       </div>
     </section>
   );
