@@ -72,7 +72,7 @@ Status: Open for Freelance, Internships & Full-time opportunities.`;
 - Frontend: React, NextJS, Redux, Tailwind CSS, Bootstrap, Framer Motion
 - Backend:  Node.js, Express, RESTful APIs, Socket.IO
 - Database: MongoDB, Mongoose, dynamic aggregations, Cloudinary
-- Tools & Devlopment:    Git, GitHub, NPM, Postman, Vercel, Netlify, ENV`;
+- Tools & Devlopment:   Docker, Git, GitHub, NPM, Postman, Vercel, Netlify, ENV`;
           break;
         case "projects":
           output = `Featured Project Showcase:

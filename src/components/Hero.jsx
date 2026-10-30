@@ -8,10 +8,10 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const roles = [
-    "MERN Stack Developer",
+    "Backend Engineer",
     "Full Stack Engineer",
     "JavaScript Specialist",
-    "Backend Engineer",
+    "MERN Stack Developer",
   ];
 
   const typingSpeed = 100;
@@ -80,7 +80,7 @@ export default function Hero() {
             <p className="max-w-xl text-base sm:text-lg text-gray-400 leading-relaxed">
               I am Backend focused full stack developer with hands on experience
               building and deploying web applications using Node JS, Express JS,
-              MongoDB, React and NextJS. I built Projects featuring
+              MongoDB, Reac, NextJS and Docker. I built Projects featuring
               authorization, password, hashing, present data and real time data
               with socket.io.
             </p>
@@ -177,6 +177,7 @@ export default function Hero() {
                     <span className="text-emerald-400">'Tailwind'</span>,{" "}
                     <span className="text-emerald-400">'Bootstrap'</span>,{" "}
                     <span className="text-emerald-400">'Node JS'</span>,{" "}
+                    <span className="text-emerald-400">'Docker'</span>,{" "}
                     <span className="text-emerald-400">'Git & Github'</span>
                     <span className="text-blue-400">]</span>,
                   </div>

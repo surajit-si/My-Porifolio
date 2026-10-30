@@ -35,6 +35,7 @@ export default function Skills() {
         { name: "Postman / REST clients", level: "90%" },
         { name: "Netlify / Vercel", level: "90%" },
         { name: "Environment Variables", level: "100%" },
+        { name: "Docker", level: "40%" },
       ],
     },
   ];
